@@ -1,0 +1,35 @@
+extends ../../views/layout
+
+block content
+    .container
+        h1 Items
+        if (blocks.length > 0 && blocks)
+            table(class="table table-responsive table-bordered table-sm")
+                thead
+                    tr
+                        td TxHash
+                        td 
+                            a(id='idBlock' href="/api/data/?sort=block") Block
+                        td Timestamp
+                        td 
+                            a(id='idBlock' href="/api/data/?sort=gasprice") Gasprice
+                        td 
+                            a(id='idBlock' href="/api/data/?sort=gasused") Gasused
+                tbody#dataBody
+                    each val in blocks
+                        tr
+                            td
+                                a(href="/api/data/"+parseInt(val.blockNumber, 16))=parseInt(val.transactionHash, 16)
+                            td
+                                != parseInt(val.blockNumber, 16)
+                            td
+                                - var msec = parseInt(val.timeStamp, 16)
+                                - var d = new Date(msec)
+                                - var t = d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear() + ' ' + d.getHours()+ ':' + d.getMinutes() + ':' + d.getSeconds() 
+                                != t
+                            td
+                                != parseInt(val.gasPrice, 16)
+                            td
+                                != parseInt(val.gasUsed, 16)
+        else
+            p No Content

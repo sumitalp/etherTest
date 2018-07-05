@@ -1,0 +1,32 @@
+extends ../../views/layout
+
+block content
+    .container
+        h1 Items
+        table(class="table table-responsive table-bordered table-sm")
+            thead
+                tr
+                    td TxHash
+                    td 
+                        a(class='sorter' href="/api/data/?sort=block" prop='asc') Block
+                    td Timestamp
+                    td 
+                        a(class='sorter' href="/api/data/?sort=gasprice" prop='asc') Gasprice
+                    td 
+                        a(class='sorter' href="/api/data/?sort=gasused" prop='asc') Gasused
+            tbody#dataBody
+                tr
+                    td
+                        
+                    td
+                        
+                    td
+                        
+                    td
+                        
+                    td
+
+        a(class="btn btn-primary", id="loadBtn") Load All
+
+block custom_resources                      
+    script(src="/javascripts/loadData.js")
