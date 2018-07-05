@@ -1,4 +1,4 @@
-# Blockchain Test
+# Block Test
 
 ### Server Requirements
 In server you will need to make sure your server meets the following requirements:
